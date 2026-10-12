@@ -1,0 +1,63 @@
+{
+  "name": "@companydata/kvk-api",
+  "version": "0.1.0",
+  "description": "KVK API wrapper: Dutch Handelsregister (KVK) company data with full addresses, contacts and directors, through one REST call. A thin convenience layer over @companydata/companydata-sdk, pinned to the Netherlands.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run clean && npm run typecheck && npm run build",
+    "pack:check": "npm pack --dry-run",
+    "publish:public": "npm publish --access public"
+  },
+  "keywords": [
+    "kvk",
+    "handelsregister",
+    "kvk-api",
+    "netherlands",
+    "dutch",
+    "company-data",
+    "business-register",
+    "kvk-nummer",
+    "sdk",
+    "typescript"
+  ],
+  "homepage": "https://companydata.com/kvk-api/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/companydatacom/kvk-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/companydatacom/kvk-api/issues"
+  },
+  "dependencies": {
+    "@companydata/companydata-sdk": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  }
+}
